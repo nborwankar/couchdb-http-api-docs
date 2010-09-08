@@ -34,7 +34,7 @@ The db is created, with update sequence 0.
     {"ok" : true}
 
 
-#### db.deleteDb()
+### db.deleteDb()
 
 #### Description
 Deletes the db.
@@ -46,7 +46,7 @@ The db is deleted.
     {"ok" : true}
 
 
-#### db.ensureFullCommit()
+### db.ensureFullCommit()
 
 #### Description
 Does a POST request to the db and "_ensure_full_commit"
@@ -59,7 +59,7 @@ Tells the db to do an fsync (write data to disk immediately).
 and the start time of the db instance.
 
 
-#### db.query(mapFun, reduceFun, options, keys, language)
+### db.query(mapFun, reduceFun, options, keys, language)
 
 #### Description
 Applies the mandatory map function and the optional reduce function to the contents of database and returns the results. 
@@ -74,7 +74,7 @@ The total number of rows and an array of rows, each row containing one result of
      db.query("function(doc) { emit(doc._id, null); }", null, {"include_docs":"true"}, ["123", "456"])
 
 
-#### db.view(viewname, options, keys)
+### db.view(viewname, options, keys)
 
 #### Description
 Applies the view to the contents of database and returns the results. When there are no keys given, it does a GET request to the view path with the options as params, or a POST request with the keys as body.
@@ -88,7 +88,7 @@ The total number of rows and an array of rows, each row containing one result of
     db.view('spec_db/viewname', {"include_docs":"true"}, ["456"])
 
 
-#### db.info()
+### db.info()
 
 #### Description
 Does a GET request to the db. 
