@@ -112,7 +112,6 @@ The total number of rows and an array of rows, each row containing one result of
     db.allDocs({"include_docs":"true"}, ["456"])
 
 
-## .changes()
 
 ### db.changes(options)
 
@@ -128,8 +127,6 @@ The last sequence and an array with results. Each result contains the ID and seq
     
     
 
-## .compact()
-
 ### db.compact()
 
 ### Description
@@ -139,7 +136,6 @@ Does a POST request to the db and "_compact". Compacts the db.
     {"ok" : true}
     
 
-## .viewCleanup()
 
 ### db.viewCleanup()
 
@@ -150,8 +146,6 @@ Does a POST request to the db and "_view_cleanup". Cleans old view output from d
     {"ok" : true}
     
     
-
-## .setDbProperty()
 
 ### db.setDbProperty(propId, propValue)
 
@@ -169,7 +163,6 @@ The db property is set to the specified value.
     
     
 
-## .getDbProperty()
 
 ### db.getDbProperty(propId)
 
@@ -184,7 +177,6 @@ The property value.
     
     
 
-## .setSecObj()
 
 ### db.setSecObj(secObj)
 
@@ -201,7 +193,6 @@ The security object is set to the specified value.
     db.setSecObj({"admins" : {"names" : ["laura"], "roles" : ["boss"]}})
     
 
-## .getSecObj()
 
 ### db.getSecObj(propId)
 
