@@ -6,7 +6,7 @@ A new db is specified like this:
 It then has to be [created](/createDb) before you can do anything with it.
 
 
-#### db.request(method, uri, requestOptions)
+### db.request(method, uri, requestOptions)
 
 ####  Description
 Combines the headers of the [db](/database-intro) with the requestOptions and passes the parameters to [CouchDB.request](/request), which creates a [new XMLHTTPRequest](/newXhr).
@@ -22,7 +22,7 @@ A new XMLHTTPRequest with readyState 4 as made by [CouchDB.request](/request).
     
     
     
-#### db.createDb()
+### db.createDb()
 
 #### Description
 Creates the db.
