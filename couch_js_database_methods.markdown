@@ -6,113 +6,97 @@ A new db is specified like this:
 It then has to be [created](/createDb) before you can do anything with it.
 
 
-### .request()
+#### db.request(method, uri, requestOptions)
 
-##### db.request(method, uri, requestOptions)
-
-#####  Description
+####  Description
 Combines the headers of the [db](/database-intro) with the requestOptions and passes the parameters to [CouchDB.request](/request), which creates a [new XMLHTTPRequest](/newXhr).
 
-##### Results
+#### Results
 The XMLHTTPRequest has been sent with the given parameters and the headers options of the db.
 
-##### Returns
+#### Returns
 A new XMLHTTPRequest with readyState 4 as made by [CouchDB.request](/request).
 
-##### Example
+#### Example
      db.request("GET", "/test_db")
     
     
     
+#### db.createDb()
 
-## .createDb()
-
-### db.createDb()
-
-### Description
+#### Description
 Creates the db.
   
-### Results
+#### Results
 The db is created, with update sequence 0.
 
-### Returns
+#### Returns
     {"ok" : true}
 
 
-## .deleteDb()
+#### db.deleteDb()
 
-### db.deleteDb()
-
-### Description
+#### Description
 Deletes the db.
   
-### Results
+#### Results
 The db is deleted.
 
 ### Returns
     {"ok" : true}
 
 
-## .ensureFullCommit()
+#### db.ensureFullCommit()
 
-### db.ensureFullCommit()
-
-### Description
+#### Description
 Does a POST request to the db and "_ensure_full_commit"
   
-### Results
+#### Results
 Tells the db to do an fsync (write data to disk immediately).
 
-### Returns
+#### Returns
     {"ok" : true} 
 and the start time of the db instance.
 
 
-## .query()
+#### db.query(mapFun, reduceFun, options, keys, language)
 
-### db.query(mapFun, reduceFun, options, keys, language)
-
-### Description
+#### Description
 Applies the mandatory map function and the optional reduce function to the contents of database and returns the results. 
 Options can include the [Querying Options of the HTTP view API](http://wiki.apache.org/couchdb/HTTP_view_API#Querying_Options).
 The result can be specified more by querying only for single keys.
 The language of the query has to be specified when another language than the default JavaScript is used. [Erlang views have to be enabled](/http://wiki.apache.org/couchdb/EnableErlangViews) beforehand.
 
-### Returns
+#### Returns
 The total number of rows and an array of rows, each row containing one result of the query.
 
-### Example
+#### Example
      db.query("function(doc) { emit(doc._id, null); }", null, {"include_docs":"true"}, ["123", "456"])
 
 
-## .view()
+#### db.view(viewname, options, keys)
 
-### db.view(viewname, options, keys)
-
-### Description
+#### Description
 Applies the view to the contents of database and returns the results. When there are no keys given, it does a GET request to the view path with the options as params, or a POST request with the keys as body.
 Options can include the [Querying Options of the HTTP view API](http://wiki.apache.org/couchdb/HTTP_view_API#Querying_Options).
 The result can be specified more by querying only for single keys.
 
-### Returns
+#### Returns
 The total number of rows and an array of rows, each row containing one result of the query, or null when the view doesn't exist.
 
-### Example
+#### Example
     db.view('spec_db/viewname', {"include_docs":"true"}, ["456"])
 
 
-## .info()
+#### db.info()
 
-### db.info()
-
-### Description
+#### Description
 Does a GET request to the db. 
 
-### Returns
+#### Returns
 db_name, doc_count, doc_del_count, update_seq, purge_seq, compact_running, disk_size, instance_start_time, disk_format_version
 
 
-## .allDocs()
 
 ### db.allDocs(options, keys)
 
